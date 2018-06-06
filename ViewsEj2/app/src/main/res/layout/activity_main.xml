@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cursoutn.viewsej2.MainActivity">
+
+    <RadioGroup
+        android:id="@+id/seniorityContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:padding="15dp"
+        >
+
+        <RadioButton
+            android:id="@+id/radioJunior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Junior"
+            android:textSize="18sp"
+            />
+
+        <RadioButton
+            android:id="@+id/radioSemi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Semi Senior"
+            android:textSize="22sp"
+            />
+
+        <RadioButton
+            android:id="@+id/radioSenior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Senior"
+            android:textSize="22sp"
+            />
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:id="@+id/checksContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/seniorityContainer"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/langPhp"
+                android:text="PHP"
+                android:textSize="22sp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:id="@+id/langJava"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Java"
+                android:textSize="22sp"/>
+
+            <CheckBox
+                android:id="@+id/langKotlin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Kotlin"
+                android:textSize="22sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/langCSharp"
+                android:text="C#"
+                android:textSize="22sp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:id="@+id/langPascal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pascal"
+                android:textSize="22sp"/>
+
+            <CheckBox
+                android:id="@+id/langPython"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Python"
+                android:textSize="22sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/langBasic"
+                android:text="Basic"
+                android:textSize="22sp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:id="@+id/langProlog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Prolog"
+                android:textSize="22sp"/>
+
+            <CheckBox
+                android:id="@+id/langRubi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rubi"
+                android:textSize="22sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/langOtro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Otro"
+                android:textSize="22sp"/>
+
+            <EditText
+                android:id="@+id/otherLang"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnGenerar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Generar CV"
+        app:layout_constraintTop_toBottomOf="@id/checksContainer"
+         />
+
+    <TextView
+        android:id="@+id/txtCV"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text=""
+        android:layout_margin="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnGenerar" />
+
+
+
+</android.support.constraint.ConstraintLayout>

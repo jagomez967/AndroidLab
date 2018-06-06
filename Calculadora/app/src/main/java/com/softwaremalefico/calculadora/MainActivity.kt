@@ -14,7 +14,11 @@ class MainActivity : AppCompatActivity() {
     var numeroAcumulado: Int = 0
     var ultimaOperacion: Int = 0
     var borrarDisplay: Boolean = false
-    var arrayMemoria = arrayOf(0,0,0,0)
+
+    lateinit var btnM1 : Button
+    lateinit var btnM2 : Button
+    lateinit var btnM3 : Button
+    lateinit var btnM4 : Button
 
     lateinit var btn1 : Button
     lateinit var btn2 : Button
@@ -26,10 +30,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var btn8 : Button
     lateinit var btn9 : Button
     lateinit var btn0 : Button
-    lateinit var btnM1 : Button
-    lateinit var btnM2 : Button
-    lateinit var btnM3 : Button
-    lateinit var btnM4 : Button
     lateinit var btnC : Button
     lateinit var btnCe : Button
     lateinit var btnMas : Button
@@ -49,11 +49,29 @@ class MainActivity : AppCompatActivity() {
         btnM4 = findViewById(R.id.btnM4)
 
 
-        var mBtns = arrayOf(btnM1,btnM2,btnM3,btnM4)
-        for (btn in mBtns)
-        {
-            btn.setOnLongClickListener{ x-> guardarEnMemoria(x)}
-            btn.setOnClickListener {x -> leerDeMemoria(x)}
+        var mBtns : Array<Button> = arrayOf(btnM1, btnM2, btnM3, btnM4)
+        for(btn in mBtns){
+
+
+            btn.setOnLongClickListener{ v ->
+                var index = mBtns.indexOf(btn)
+                var key = "posicion_" + index
+                var sharedPref = getSharedPreferences("losBotonesM", Context.MODE_PRIVATE)
+                var editor: SharedPreferences.Editor = sharedPref.edit()
+                editor.putString(key, txtDisplay.text.toString())
+                editor.commit()
+                Toast.makeText(this, "Guardado en M " + (index+1), Toast.LENGTH_LONG).show()
+                true
+            }
+
+            btn.setOnClickListener{ v -> run {
+                var index = mBtns.indexOf(btn)
+                var key = "posicion_" + index
+                var sharedPref = getSharedPreferences("losBotonesM", Context.MODE_PRIVATE)
+                txtDisplay.text = sharedPref.getString(key, txtDisplay.text.toString())
+            }}
+
+
         }
 
         txtDisplay = findViewById(R.id.txtDisplay)
@@ -108,22 +126,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun guardarEnMemoria(v: View):Boolean {
-        var index = v.id
-        var key = "position_" + index
-        var sharedPref = getSharedPreferences("BotonesMemoria", Context.MODE_PRIVATE)
-        var editor: SharedPreferences.Editor = sharedPref.edit()
-        editor.putString(key,txtDisplay.text.toString())
-        editor.commit()
-        Toast.makeText(this,"guardado en M"+(index+1), Toast.LENGTH_LONG)
-        return true
-    }
-    private fun leerDeMemoria(v: View){
-        var index = v.id
-        var key = "position_" + index
-        var sharedPref = getSharedPreferences("BotonesMemoria", Context.MODE_PRIVATE)
-        txtDisplay.text = sharedPref.getString(key,txtDisplay.text.toString())
-    }
     private fun calcularResultado() {
         var resultado = getNumeroActual()
         if(ultimaOperacion != 0) {

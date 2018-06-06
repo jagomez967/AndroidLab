@@ -26,6 +26,7 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         >
+
         <Button
             android:id="@+id/btnM1"
             android:text="M1"
@@ -34,32 +35,32 @@
             android:layout_height="match_parent"
             android:textSize="22sp"
             />
+
         <Button
             android:id="@+id/btnM2"
             android:text="M2"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent"
             android:textSize="22sp"
-            />
+            android:layout_height="match_parent" />
+
         <Button
             android:id="@+id/btnM3"
             android:text="M3"
+            android:textSize="22sp"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:textSize="22sp"
-            />
+            android:layout_height="match_parent" />
+
         <Button
             android:id="@+id/btnM4"
             android:text="M4"
+            android:textSize="22sp"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:textSize="22sp"
-            />
-    </LinearLayout>
+            android:layout_height="match_parent" />
 
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
